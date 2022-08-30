@@ -3,33 +3,39 @@ import { Observable, map } from 'rxjs';
 import { IMovie } from './movie';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Movies } from './find-movie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
+  API_KEY = "########";
   resultBuffer = {};
   newSearch: any = '';
   
   
+  
   url: string = "https://api.themoviedb.org/3/search/movie?";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
 
-  getMovie(search: string): Observable<IMovie[]> {
-
-    const urlParams = search ? new HttpParams()
-      .set('api_key', environment.API_KEY)
-      .set('query', search)
-        : {};
-
-    const newUrl = `${this.url}${urlParams.toString()}`
-   
-    return this.http.get<IMovie[]>(newUrl)
-     .map(data => {
-      this.resultBuffer = data.results
-      return console.log(this.resultBuffer)
-     })
   }
+  movieSearch: any = new Movies()
+  
+
+  getMovie(searchQuery: any): Observable<IMovie[]> {
+    this.movieSearch.film = this.newSearch;
+    const urlParams = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('query', searchQuery)
+    
+    console.log("beast",searchQuery)
+    const newUrl = `${this.url}${urlParams.toString()}`
+    console.log("url", newUrl)
+    return this.http.get<IMovie[]>(newUrl)
+     
+  }
+  
 }

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
+import { MovieService } from './movie.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

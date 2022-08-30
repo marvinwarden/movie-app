@@ -8,12 +8,12 @@ import { IMovie } from '../movie';
 })
 export class MovieInfoComponent implements OnInit {
   
-  constructor(result: IMovie) {
-    result: result.results
+  constructor() {
+    
    }
 
   ngOnInit(): void {
-   console.log("test", this.result)
+   
   }
 
 }

@@ -5,7 +5,8 @@ import { IMovie } from '../movie';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MovieInfoComponent } from '../movie-info/movie-info.component';
-
+import { MovieService } from '../movie.service';
+import { Movies } from '../find-movie';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,37 +14,38 @@ import { MovieInfoComponent } from '../movie-info/movie-info.component';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  resultBuffer = {};
+  resultBuffer: any = [];
+  
+  movies: IMovie[] = [];
   newSearch: any = '';
-  
-  
-  url: string = "https://api.themoviedb.org/3/search/movie?";
+  found = new Movies()
 
-  constructor() { }
+  constructor(private movieService: MovieService ) { }
 
   
+  nameQuery(query: any) {
+      this.newSearch = query;
+      this.found.film = query;
+      console.log("test",this.found.film)
 
-  // searchMovie(search: string)  {
-  //   this.newSearch = search;
-  // }
-
-  getMovie(search: string) {
-
-    const urlParams = search ? new HttpParams()
-      .set('api_key', environment.API_KEY)
-      .set('query', search)
-        : {};
-
-    const newUrl = `${this.url}${urlParams.toString()}`
-   
-   return this.http.get<IMovie>(newUrl)
-     .subscribe(data => {
-      this.resultBuffer = data.results
-      console.log(this.resultBuffer)
-     })
+      this.movieService.getMovie(this.found.film)  
+      .subscribe((data) => {
+          this.resultBuffer.push(data) 
+          console.log("result",this.resultBuffer
+          )}
+          )
   }
+  
+    
+ 
+              
+ 
 
-  ngOnInit(): void {
+
+
+  ngOnInit() {
+    
   }
+  
 
 }

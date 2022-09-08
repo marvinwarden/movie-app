@@ -1,0 +1,5 @@
+@tailwind components;
+
+.info {
+ @apply my-1.5
+}

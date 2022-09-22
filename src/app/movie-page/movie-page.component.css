@@ -1,0 +1,44 @@
+.movie-page {
+    position: absolute;
+    top: 40px;
+    width: 344px;
+    height: 516px;
+
+}
+
+.info-text {
+    visibility: hidden;
+    margin-bottom: 15px;
+    transition: 150ms;
+    color: rgb(7, 1, 1, 0.1);
+}
+
+.movie-info-pop {
+    visibility: hidden;
+    padding: 10px;
+    /* width: 100%; */
+    height: 0;
+    
+    transition: 500ms;
+}
+
+.movie-page:hover .info-text {
+    visibility: visible;
+    color: aliceblue;
+    transition: 625ms;
+}
+
+.movie-page:hover .movie-info-pop {
+    background-color: rgb(7, 1, 1, 0.9);
+    visibility: visible;
+    color: aliceblue;
+    height: 516px;
+    transition: 500ms;
+}
+
+
+
+
+
+
+

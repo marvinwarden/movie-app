@@ -1,14 +1,13 @@
 <div class="bg-slate-800 h-72">
-<div  class="z-10  m-0">
-  <h1 class="text-blue text-9xl text-center pt-11 italic font-sans" >{{title}}</h1>
-</div>
-<div >
-  <app-search-bar class="flex justify-center " ></app-search-bar>
-  
-</div>
-<div *ngIf="movieService.resultBuffer.length > 0" class="bg-slate-200 flex  content-evenly ">
-  <app-movie-info class="m-5 flex flex-row flex-wrap mx-7"></app-movie-info>
-</div>
+  <div class="z-10  m-0">
+    <h1 class="text-blue text-9xl text-center pt-11 italic font-sans">{{title}}</h1>
+  </div>
+  <div>
+    <app-search-bar class="flex justify-center "></app-search-bar>
+  </div>
+  <div *ngIf="movieService.resultBuffer.length > 0">
+    <app-movie-info class=" flex flex-row flex-wrap place-content-evenly"></app-movie-info>
+  </div>
 </div>
 
 

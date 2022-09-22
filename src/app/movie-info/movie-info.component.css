@@ -3,3 +3,12 @@
 .info {
  @apply my-1.5
 }
+
+.poster {
+    height: 516px;
+    width: 344px;
+    /* display: flex; */
+    justify-content: center;
+    align-content: center;
+}
+

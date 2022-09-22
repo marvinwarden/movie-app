@@ -1,6 +1,24 @@
-<div  *ngFor="let customer of movie.resultBuffer[0].results; let i = index" class="  rounded-t w-96 h-auto p-5 flex flex-col justify-center ">
-<img  src="https://image.tmdb.org/t/p/original{{customer.poster_path}} " alt="movie poster">
-<p class="info">genre tags</p>
-<p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  </p>
-<p class="info">Release date</p>
+<div *ngFor="let film of movie.resultBuffer[0].results; let i = index" class="rounded-t mx-5 w-96 p-5 relative ">
+    <div class="rounded-t  w-96  p-5 flex flex-col  justify-center ">
+        <div class="poster ">
+            <img *ngIf="film.poster_path; else elseBlock" src="https://image.tmdb.org/t/p/original{{film.poster_path}} "
+                alt="movie poster">
+            <h1 class="text-lg" >{{film.original_title}}</h1>
+            <p>{{film.release_date.slice(0,4)}}</p>
+            <ng-template #elseBlock>
+                <img src="https://thescreen.in/img/no-poster.jpg" alt="movie poster">
+
+            </ng-template>
+        </div>
+
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/en/4/45/Speed_movie_poster.jpg" alt="movie poster"> -->
+
+
+        <app-movie-page [synopsis]="film.overview" [title]="film.original_title"
+            [releaseDate]="film.release_date.slice(0,4)"></app-movie-page>
+
+    </div>
+
+
+
 </div>

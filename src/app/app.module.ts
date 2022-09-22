@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { MovieService } from './movie.service';
+import { MoviePageComponent } from './movie-page/movie-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    MovieInfoComponent
+    MovieInfoComponent,
+    MoviePageComponent
   ],
   imports: [
     BrowserModule,

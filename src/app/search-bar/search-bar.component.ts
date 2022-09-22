@@ -8,21 +8,8 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  resultBuffer: any = [];
-  
-  
 
   constructor(public movieService: MovieService ) { }
-
-  
-
-  
-    
- 
-              
- 
-
-
 
   ngOnInit() {
     

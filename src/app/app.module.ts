@@ -8,13 +8,15 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { MovieService } from './movie.service';
 import { MoviePageComponent } from './movie-page/movie-page.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
     MovieInfoComponent,
-    MoviePageComponent
+    MoviePageComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
